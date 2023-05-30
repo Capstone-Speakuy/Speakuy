@@ -1,9 +1,8 @@
-package id.wikosac.speakuy.ui.auth
+package com.speakuy.ui.auth
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import id.wikosac.speakuy.R
-import id.wikosac.speakuy.databinding.ActivityAuthBinding
+import com.speakuy.databinding.ActivityAuthBinding
 
 class AuthActivity : AppCompatActivity() {
     private lateinit var binding: ActivityAuthBinding
@@ -15,5 +14,9 @@ class AuthActivity : AppCompatActivity() {
         setContentView(binding.root)
         supportActionBar?.hide()
 
+    }
+
+    companion object {
+        const val TOKEN_PREF = ""
     }
 }

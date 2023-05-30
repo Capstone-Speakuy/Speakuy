@@ -1,4 +1,4 @@
-package id.wikosac.speakuy.api
+package com.speakuy.api
 
 data class Mentor(
     val name: String,

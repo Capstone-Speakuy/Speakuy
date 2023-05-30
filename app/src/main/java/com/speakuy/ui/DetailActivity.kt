@@ -1,4 +1,4 @@
-package id.wikosac.speakuy.ui
+package com.speakuy.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.annotation.SuppressLint
@@ -11,8 +11,7 @@ import android.view.View
 import android.view.WindowInsets
 import android.widget.LinearLayout
 import android.widget.TextView
-import id.wikosac.speakuy.R
-import id.wikosac.speakuy.databinding.ActivityDetailBinding
+import com.speakuy.databinding.ActivityDetailBinding
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.

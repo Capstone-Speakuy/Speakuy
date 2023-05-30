@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="?attr/fullscreenBackgroundColor"
     android:theme="@style/ThemeOverlay.Speakuy.FullscreenContainer"
-    tools:context=".ui.DetailActivity">
+    tools:context="com.speakuy.ui.DetailActivity">
 
     <TextView
         android:id="@+id/fullscreen_content"

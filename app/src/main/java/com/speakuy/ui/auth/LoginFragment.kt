@@ -1,4 +1,4 @@
-package id.wikosac.speakuy.ui.auth
+package com.speakuy.ui.auth
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,9 +7,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
-import id.wikosac.speakuy.R
-import id.wikosac.speakuy.databinding.FragmentLoginBinding
-import id.wikosac.speakuy.ui.MainActivity
+import com.speakuy.R
+import com.speakuy.databinding.FragmentLoginBinding
+import com.speakuy.ui.MainActivity
 
 class LoginFragment : Fragment() {
 

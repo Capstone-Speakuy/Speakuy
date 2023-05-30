@@ -1,4 +1,4 @@
-package id.wikosac.speakuy.ui
+package com.speakuy.ui
 
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -7,8 +7,8 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import id.wikosac.speakuy.R
-import id.wikosac.speakuy.databinding.ActivityMainBinding
+import com.speakuy.R
+import com.speakuy.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 

@@ -1,4 +1,4 @@
-package id.wikosac.speakuy.ui.auth
+package com.speakuy.ui.auth
 
 import androidx.lifecycle.ViewModel
 

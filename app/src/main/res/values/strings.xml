@@ -3,4 +3,22 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="dont_have_account">Don\'t have account yet?</string>
+    <string name="click_here">Click here</string>
+    <string name="your_journey">Your Journey Starts Here</string>
+    <string name="login">Login</string>
+    <string name="email">E-mail</string>
+    <string name="password">Password</string>
+    <string name="space">...</string>
+    <string name="register">Register</string>
+    <string name="lets_start">Let\'s Start Your Learning Journey</string>
+    <string name="name">Name</string>
+    <string name="already_have_account">Already have an account?</string>
+    <string name="top_rated">Top Rated Mentor</string>
+    <string name="latest_info">Latest Info</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_detail">DetailActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
 </resources>

@@ -13,7 +13,7 @@
         android:layout_height="289dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/img" />
+        app:srcCompat="@drawable/img_decor" />
 
     <TextView
         android:id="@+id/textView3"

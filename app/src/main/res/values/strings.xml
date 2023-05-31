@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">Speakuy</string>
     <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_message">Message</string>
+    <string name="title_profile">Profile</string>
     <string name="dont_have_account">Don\'t have account yet?</string>
     <string name="click_here">Click here</string>
     <string name="your_journey">Your Journey Starts Here</string>
@@ -21,4 +21,16 @@
     <string name="title_activity_detail">DetailActivity</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="message">Hello there, good evening..</string>
+    <string name="title_matching">Matching</string>
+    <string name="title_setting">Setting</string>
+    <string name="quick_test">Let\'s do quick test</string>
+    <string name="find_tutor">Let\'s find your tutor</string>
+    <string name="notif">Notifications</string>
+    <string name="theme">Theme</string>
+    <string name="lang">Language</string>
+    <string name="help">Help</string>
+    <string name="about">About</string>
+    <string name="bookmark">Bookmark</string>
+    <string name="logout">Logout</string>
 </resources>

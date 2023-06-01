@@ -1,9 +1,22 @@
 package com.speakuy.api
 
 data class ApiResponse(
-    val code: Int,
-    val status: String,
-    val message: String? = null
+//    val code: Int,
+//    val status: String,
+    val error: String,
+    val message: String
+)
+
+data class LoginResponse(
+    val error: String,
+    val message: String,
+    val loginResult: LoginResult?
+)
+
+data class LoginResult(
+    val userId: String,
+    val name: String,
+    val token: String,
 )
 
 data class User(

@@ -7,21 +7,21 @@ import retrofit2.http.*
 
 interface ApiService {
 
-//    @FormUrlEncoded
-//    @POST("register")
-//    fun register(
-//        @Field("name") name : String,
-//        @Field("email") email : String,
-//        @Field("password") password : String
-//    ): Call<ApiResponse>
-//
-//    @FormUrlEncoded
-//    @POST("login")
-//    fun login(
-//        @Field("email") email : String,
-//        @Field("password") password : String
-//    ): Call<LoginResponse>
-//
+    @FormUrlEncoded
+    @POST("register")
+    fun register(
+        @Field("name") name : String,
+        @Field("email") email : String,
+        @Field("password") password : String
+    ): Call<ApiResponse>
+
+    @FormUrlEncoded
+    @POST("login")
+    fun login(
+        @Field("email") email : String,
+        @Field("password") password : String
+    ): Call<LoginResponse>
+
 //    @Multipart
 //    @POST("stories")
 //    fun upload(
@@ -34,9 +34,9 @@ interface ApiService {
 //        @Query("location") location: Int
 //    ): Call<StoryResponse>
 
-    @GET("stories")
-    suspend fun getStoryPaged(
-        @Query("page") page: Int,
-        @Query("size") size: Int
-    ): Mentor
+//    @GET("stories")
+//    suspend fun getStoryPaged(
+//        @Query("page") page: Int,
+//        @Query("size") size: Int
+//    ): Mentor
 }

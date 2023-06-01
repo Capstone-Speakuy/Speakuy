@@ -49,7 +49,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/ed_email_login"
+        android:id="@+id/ed_email_"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -66,6 +66,7 @@
         app:startIconDrawable="@drawable/ic_baseline_alternate_email_24">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/ed_email_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/space" />
@@ -78,10 +79,10 @@
         android:layout_marginTop="16dp"
         android:text="@string/password"
         app:layout_constraintStart_toStartOf="@+id/textView5"
-        app:layout_constraintTop_toBottomOf="@+id/ed_email_login" />
+        app:layout_constraintTop_toBottomOf="@+id/ed_email_" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/ed_pass_login"
+        android:id="@+id/ed_pass_"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -90,12 +91,13 @@
         app:boxCornerRadiusBottomStart="20dp"
         app:boxCornerRadiusTopEnd="20dp"
         app:boxCornerRadiusTopStart="20dp"
-        app:layout_constraintEnd_toEndOf="@+id/ed_email_login"
-        app:layout_constraintStart_toStartOf="@+id/ed_email_login"
+        app:layout_constraintEnd_toEndOf="@+id/ed_email_"
+        app:layout_constraintStart_toStartOf="@+id/ed_email_"
         app:layout_constraintTop_toBottomOf="@+id/textView6"
         app:startIconDrawable="@drawable/ic_baseline_key_24">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/ed_pass_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/space" />
@@ -109,9 +111,9 @@
         android:background="@drawable/rounded_btn"
         android:text="@string/login"
         android:textColor="#FFFFFF"
-        app:layout_constraintEnd_toEndOf="@+id/ed_pass_login"
-        app:layout_constraintStart_toStartOf="@+id/ed_pass_login"
-        app:layout_constraintTop_toBottomOf="@+id/ed_pass_login" />
+        app:layout_constraintEnd_toEndOf="@+id/ed_pass_"
+        app:layout_constraintStart_toStartOf="@+id/ed_pass_"
+        app:layout_constraintTop_toBottomOf="@+id/ed_pass_" />
 
     <TextView
         android:id="@+id/textView7"

@@ -1,5 +1,6 @@
 package com.speakuy.ui.auth
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
@@ -10,27 +11,36 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.Toast
-import androidx.core.widget.addTextChangedListener
-import androidx.fragment.app.viewModels
-import androidx.navigation.Navigation
-import androidx.navigation.fragment.findNavController
+import androidx.datastore.core.DataStore
+import androidx.datastore.preferences.core.Preferences
+import androidx.datastore.preferences.preferencesDataStore
+import androidx.lifecycle.ViewModelProvider
 import com.speakuy.R
 import com.speakuy.databinding.FragmentLoginBinding
 import com.speakuy.ui.MainActivity
+
+private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "login")
 
 class LoginFragment : Fragment() {
 
     private var _binding: FragmentLoginBinding? = null
     private val binding get() = _binding!!
-    private val authViewModel: AuthViewModel by viewModels()
+    private lateinit var authViewModel: AuthViewModel
     private lateinit var edEmail: EditText
     private lateinit var edPass: EditText
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View {
         _binding = FragmentLoginBinding.inflate(inflater, container, false)
+        val pref = SettingPreferences.getInstance(requireContext().dataStore)
+        authViewModel = ViewModelProvider(this, ViewModelFactory(pref))[AuthViewModel::class.java]
+        authViewModel.getTokenPref().observe(viewLifecycleOwner) {
+            if (it != null) toMain()
+            toast("token: $it")
+        }
         return binding.root
     }
 
@@ -44,7 +54,11 @@ class LoginFragment : Fragment() {
             authViewModel.login(edEmail.text.toString(), edPass.text.toString())
             authViewModel.loginResponse.observe(viewLifecycleOwner) {
                 toast(it.message)
-                if (it.message == "success") toMain()
+                if (it.message == "success") {
+                    toMain()
+                    authViewModel.saveTokenPref(it.loginResult!!.token)
+                    TOKEN_PREF = it.loginResult.token
+                }
             }
         }
 
@@ -64,6 +78,11 @@ class LoginFragment : Fragment() {
         })
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
+    }
+
     private fun toMain() {
         val intent = Intent(requireActivity(), MainActivity::class.java)
         startActivity(intent)
@@ -81,5 +100,9 @@ class LoginFragment : Fragment() {
 
     private fun toast(msg: String) {
         Toast.makeText(requireContext(), msg, Toast.LENGTH_SHORT).show()
+    }
+
+    companion object {
+        var TOKEN_PREF = ""
     }
 }

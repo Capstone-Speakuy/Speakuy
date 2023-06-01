@@ -15,8 +15,4 @@ class AuthActivity : AppCompatActivity() {
         supportActionBar?.hide()
 
     }
-
-    companion object {
-        const val TOKEN_PREF = ""
-    }
 }

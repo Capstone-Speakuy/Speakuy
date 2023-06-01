@@ -2,6 +2,7 @@ package com.speakuy.api
 
 import com.speakuy.BuildConfig
 import com.speakuy.ui.auth.AuthActivity
+import com.speakuy.ui.auth.LoginFragment
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -19,7 +20,7 @@ class ApiConfig {
             val authInterceptor = Interceptor { chain ->
                 val req = chain.request()
                 val reqHeaders = req.newBuilder()
-                    .addHeader("Authorization", "Bearer ${AuthActivity.TOKEN_PREF}")
+                    .addHeader("Authorization", "Bearer ${LoginFragment.TOKEN_PREF}")
                     .build()
                 chain.proceed(reqHeaders)
             }

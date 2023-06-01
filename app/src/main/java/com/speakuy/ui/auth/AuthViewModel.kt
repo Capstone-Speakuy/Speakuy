@@ -1,16 +1,15 @@
 package com.speakuy.ui.auth
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import androidx.lifecycle.*
 import com.speakuy.api.ApiConfig
 import com.speakuy.api.ApiResponse
 import com.speakuy.api.LoginResponse
+import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class AuthViewModel : ViewModel() {
+class AuthViewModel(private val pref: SettingPreferences) : ViewModel() {
     private val _response = MutableLiveData<ApiResponse>()
     val response: LiveData<ApiResponse> = _response
     private val _loginResponse = MutableLiveData<LoginResponse>()
@@ -48,5 +47,13 @@ class AuthViewModel : ViewModel() {
                 _message.value = t.message.toString()
             }
         })
+    }
+
+    fun getTokenPref(): LiveData<String?> = pref.getToken().asLiveData()
+
+    fun saveTokenPref(token: String) {
+        viewModelScope.launch {
+            pref.saveToken(token)
+        }
     }
 }

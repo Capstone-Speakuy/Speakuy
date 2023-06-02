@@ -1,9 +1,9 @@
 // controller/menteeController.js
 const Mentee = require('../models/mentee');
-const bcrypt = require('bcrypt');
+const { storage, bucketName } = require('../config/storage');
 const jwt = require("jsonwebtoken");
-
 const menteeController = {};
+const fs = require('fs');
 
 menteeController.getAllMentee = (req, res) => {
   Mentee.getAll((err, mentees) => {
@@ -98,6 +98,22 @@ menteeController.loginMenteeAuth = (req, res) => {
   });
 };
 
+//logout
+menteeController.logoutMenteeAuth = (req, res) => {
+  const token = req.headers.authorization.split(' ')[1];
+  const tokenData = jwt.decode(token);
+  const id = tokenData.data.id;
+  Mentee.megetById(id, (err, mentee) => {
+    if (err) {
+      res.status(500).json({ error: err.message });
+    } else if (mentee) {
+      res.json(mentee[0]);
+    } else {
+      res.status(404).json({ code: 201 ,status: 'Error',message: 'Mentee not found' });
+    }
+  });
+};
+
 menteeController.registerMentee = (req, res) => {
   const { full_name, email, password } = req.body;
   Mentee.checkEmailExists(email, (emailExists) => {
@@ -105,7 +121,7 @@ menteeController.registerMentee = (req, res) => {
       res.status(400).json({code: 201 ,status: 'Error', message: 'Email already exits'});
     } else {
       Mentee.addMentee(full_name, email, password, () => {
-        res.status(200).json({ code: 201 ,status: 'Created'});
+        res.status(200).json({ code: 200 ,status: 'Created'});
       });
     }
   });
@@ -125,4 +141,44 @@ menteeController.me = (req, res) => {
     }
   });
 };
+
+//updateprofile
+
+menteeController.updateme = (req, res) => {
+  const token = req.headers.authorization.split(' ')[1];
+  const tokenData = jwt.decode(token);
+  const id = tokenData.data.id;
+   const data = req.body;
+  const photo = req.file;
+
+  const path = photo.destination + photo.filename
+  let photoUrl = '';
+  if (photo) {
+    // Upload gambar ke Cloud Storage
+    // Dapatkan URL publik file yang diunggah
+    storage.bucket(bucketName).upload(path);
+    photoUrl = `https://storage.googleapis.com/${bucketName}/${photo.filename}`;
+    data.profile_picture = photoUrl;
+  }
+
+  process.nextTick(() => {
+    fs.unlink(path, (err) => {
+      if (err) {
+        console.error(err);
+        return res.status(500).send('Gagal menghapus file');
+      }
+    });
+  });
+
+  Mentee.UpdateMebyId(id, data, (err, result) => {
+    if (err) {
+      res.status(500).json({ error: err.message });
+    } else if (result.affectedRows === 0) {
+      res.status(404).json({ message: 'Mentee not found' });
+    } else {
+      res.status(200).json({ code: 200 ,status: 'OK'});
+    }
+  });
+};
+
 module.exports = menteeController;

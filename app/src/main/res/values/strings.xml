@@ -35,4 +35,5 @@
     <string name="logout">Logout</string>
     <string name="signup">Sign Up</string>
     <string name="i_agree">I agree to the terms of user and privacy policy</string>
+    <string name="phone">Phone</string>
 </resources>

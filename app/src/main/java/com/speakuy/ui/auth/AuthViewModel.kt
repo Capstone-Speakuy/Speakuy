@@ -1,5 +1,6 @@
 package com.speakuy.ui.auth
 
+import android.util.Log
 import androidx.lifecycle.*
 import com.speakuy.api.ApiConfig
 import com.speakuy.api.ApiResponse
@@ -14,8 +15,6 @@ class AuthViewModel(private val pref: SettingPreferences) : ViewModel() {
     val response: LiveData<ApiResponse> = _response
     private val _loginResponse = MutableLiveData<LoginResponse>()
     val loginResponse: LiveData<LoginResponse> = _loginResponse
-    private val _message = MutableLiveData<String>()
-    val message: LiveData<String> = _message
 
     fun login(userEmail: String, userPass: String) {
         val client = ApiConfig.getApiService().login(userEmail, userPass)
@@ -24,10 +23,9 @@ class AuthViewModel(private val pref: SettingPreferences) : ViewModel() {
                 if (response.isSuccessful) {
                     _loginResponse.value = response.body()
                 }
-                _message.value = _loginResponse.value?.message.toString()
             }
             override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
-                _message.value = t.message.toString()
+                Log.e("tes", "onFailure: ", t)
             }
         })
     }
@@ -38,13 +36,10 @@ class AuthViewModel(private val pref: SettingPreferences) : ViewModel() {
             override fun onResponse(call: Call<ApiResponse>, response: Response<ApiResponse>) {
                 if (response.isSuccessful) {
                     _response.value = response.body()
-                    _message.value = _response.value?.message.toString()
-                } else {
-                    _message.value = response.message()
                 }
             }
             override fun onFailure(call: Call<ApiResponse>, t: Throwable) {
-                _message.value = t.message.toString()
+                Log.e("tes", "onFailure: ", t)
             }
         })
     }

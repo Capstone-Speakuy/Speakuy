@@ -1,11 +1,24 @@
 package com.speakuy.api
 
-import okhttp3.MultipartBody
-import okhttp3.RequestBody
 import retrofit2.Call
 import retrofit2.http.*
 
 interface ApiService {
+
+    @FormUrlEncoded
+    @POST("mentee/register")
+    fun registerx(
+        @Field("full_name") full_name : String,
+        @Field("email") email : String,
+        @Field("password") password : String
+    ): Call<ApiResponse>
+
+    @FormUrlEncoded
+    @POST("mentee/loginAuth")
+    fun loginx(
+        @Field("email") email : String,
+        @Field("password") password : String
+    ): Call<LoginResponse>
 
     @FormUrlEncoded
     @POST("register")

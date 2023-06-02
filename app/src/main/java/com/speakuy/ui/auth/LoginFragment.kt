@@ -35,18 +35,14 @@ class LoginFragment : Fragment() {
         savedInstanceState: Bundle?,
     ): View {
         _binding = FragmentLoginBinding.inflate(inflater, container, false)
-        val pref = SettingPreferences.getInstance(requireContext().dataStore)
-        authViewModel = ViewModelProvider(this, ViewModelFactory(pref))[AuthViewModel::class.java]
-        authViewModel.getTokenPref().observe(viewLifecycleOwner) {
-            if (it != null) toMain()
-            toast("token: $it")
-        }
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val pref = SettingPreferences.getInstance(requireContext().dataStore)
+        authViewModel = ViewModelProvider(this, ViewModelFactory(pref))[AuthViewModel::class.java]
         edEmail = binding.edEmailLogin
         edPass = binding.edPassLogin
         binding.txtRegister.setOnClickListener { toReg() }
@@ -54,9 +50,9 @@ class LoginFragment : Fragment() {
             authViewModel.login(edEmail.text.toString(), edPass.text.toString())
             authViewModel.loginResponse.observe(viewLifecycleOwner) {
                 toast(it.message)
-                if (it.message == "success") {
+                if (!it.error) {
                     toMain()
-                    authViewModel.saveTokenPref(it.loginResult!!.token)
+                    authViewModel.saveTokenPref(it.loginResult.token)
                     TOKEN_PREF = it.loginResult.token
                 }
             }
@@ -93,9 +89,11 @@ class LoginFragment : Fragment() {
         val fragmentManager = requireActivity().supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
         val fragmentRegister = RegisterFragment()
-        fragmentTransaction.replace(R.id.fragment_container, fragmentRegister)
-        fragmentTransaction.addToBackStack(null)
-        fragmentTransaction.commit()
+        fragmentTransaction.apply {
+            replace(R.id.fragment_container, fragmentRegister)
+            addToBackStack(null)
+            commit()
+        }
     }
 
     private fun toast(msg: String) {

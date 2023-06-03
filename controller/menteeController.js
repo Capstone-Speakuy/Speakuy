@@ -116,6 +116,25 @@ menteeController.logoutMenteeAuth = (req, res) => {
 
 menteeController.registerMentee = (req, res) => {
   const { full_name, email, password } = req.body;
+  
+  let valid = true;
+
+  if(password.length < 8 ){
+    valid = false;
+  }
+  if(password === password.toUpperCase() ){
+    valid = false;
+  }
+  if(password === password.toLowerCase() ){
+    valid = false;
+  }
+  if(/\d/.test(password)){
+  }
+  else{
+    valid = false;
+  }
+
+  if(valid == true){
   Mentee.checkEmailExists(email, (emailExists) => {
     if (emailExists) {
       res.status(400).json({code: 201 ,status: 'Error', message: 'Email already exits'});
@@ -125,6 +144,10 @@ menteeController.registerMentee = (req, res) => {
       });
     }
   });
+}
+else{
+  res.status(400).json({code: 201 ,status: 'Error', message: 'Password invalid'});
+}
 };
 //profile
 menteeController.me = (req, res) => {

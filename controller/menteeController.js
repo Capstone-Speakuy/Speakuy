@@ -76,7 +76,6 @@ menteeController.loginMentee = (req, res) => {
       res.status(401).json({ status: 'Error', message: 'Email atau password salah' });
     } else {
       res.json({ code: 200 ,status: 'OK'});
-      //res.json({ status: 'OK', message: 'Login berhasil', data);
     }
   });
 };
@@ -91,7 +90,7 @@ menteeController.loginMenteeAuth = (req, res) => {
     } else if (!data) {
       res.status(401).json({ code: 201 ,status: 'Error', message: 'Wrong email or password'});
     } else {
-      const token = jwt.sign({ data }, "rahasia", { expiresIn: '5m' });
+      const token = jwt.sign({ data }, "rahasia", { expiresIn: '15m' });
       res.json({ code: 200 ,status: 'OK', token});
       //res.json({ status: 'OK', message: 'Login berhasil', data, token});
     }
@@ -103,15 +102,7 @@ menteeController.logoutMenteeAuth = (req, res) => {
   const token = req.headers.authorization.split(' ')[1];
   const tokenData = jwt.decode(token);
   const id = tokenData.data.id;
-  Mentee.megetById(id, (err, mentee) => {
-    if (err) {
-      res.status(500).json({ error: err.message });
-    } else if (mentee) {
-      res.json(mentee[0]);
-    } else {
-      res.status(404).json({ code: 201 ,status: 'Error',message: 'Mentee not found' });
-    }
-  });
+  res.status(200).json({ code: 200 ,status: 'OK'});
 };
 
 menteeController.registerMentee = (req, res) => {
@@ -149,6 +140,7 @@ else{
   res.status(400).json({code: 201 ,status: 'Error', message: 'Password invalid'});
 }
 };
+
 //profile
 menteeController.me = (req, res) => {
   const token = req.headers.authorization.split(' ')[1];
@@ -166,7 +158,6 @@ menteeController.me = (req, res) => {
 };
 
 //updateprofile
-
 menteeController.updateme = (req, res) => {
   const token = req.headers.authorization.split(' ')[1];
   const tokenData = jwt.decode(token);

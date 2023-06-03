@@ -13,7 +13,6 @@ router.use(cors);
 //endpoint register
 router.post('/register', menteeController.registerMentee);
 //endpoint login
-router.post('/login', menteeController.loginMentee);
 router.post('/loginAuth', menteeController.loginMenteeAuth);
 //endpoint logout
 router.get('/logoutAuth',authallmentee, menteeController.logoutMenteeAuth);
@@ -22,12 +21,13 @@ router.get('/me',authallmentee, menteeController.me);
 //endpoint update me (profile)
 router.put('/updateme', authallmentee,upload, menteeController.updateme);
 
-router.get('/all',authallmentee,menteeController.getAllMentee);
-router.get('/:id',authmentee, menteeController.getMenteeById);
+// router.post('/login', menteeController.loginMentee);
+// router.get('/all',authallmentee,menteeController.getAllMentee);
+// router.get('/:id',authmentee, menteeController.getMenteeById);
 
-router.post('/', menteeController.createMentee);
-router.put('/:id', menteeController.updateMentee);
-router.delete('/:id', menteeController.deleteMentee);
-//router.get('/', menteeController.getAllMentee);
+// router.post('/', menteeController.createMentee);
+// router.put('/:id', menteeController.updateMentee);
+// router.delete('/:id', menteeController.deleteMentee);
+// outer.get('/', menteeController.getAllMentee);
 
 module.exports = router;

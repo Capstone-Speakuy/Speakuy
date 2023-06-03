@@ -8,6 +8,4 @@ const storage = new Storage({
 
   const bucketName = 'speakkuyfotoprofile';
 
-
-
 module.exports = { storage, bucketName };

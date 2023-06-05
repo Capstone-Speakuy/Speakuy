@@ -5,19 +5,14 @@ import retrofit2.http.*
 
 interface ApiService {
 
-    @FormUrlEncoded
     @POST("mentee/register")
     fun registerx(
-        @Field("full_name") full_name : String,
-        @Field("email") email : String,
-        @Field("password") password : String
+        @Body user: User
     ): Call<ApiResponse>
 
-    @FormUrlEncoded
     @POST("mentee/loginAuth")
     fun loginx(
-        @Field("email") email : String,
-        @Field("password") password : String
+        @Body user: User
     ): Call<LoginResponse>
 
     @FormUrlEncoded

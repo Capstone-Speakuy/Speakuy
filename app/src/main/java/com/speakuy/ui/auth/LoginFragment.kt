@@ -16,6 +16,7 @@ import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
 import androidx.lifecycle.ViewModelProvider
 import com.speakuy.R
+import com.speakuy.api.User
 import com.speakuy.databinding.FragmentLoginBinding
 import com.speakuy.ui.MainActivity
 
@@ -47,13 +48,13 @@ class LoginFragment : Fragment() {
         edPass = binding.edPassLogin
         binding.txtRegister.setOnClickListener { toReg() }
         binding.btnLogin.setOnClickListener {
-            authViewModel.login(edEmail.text.toString(), edPass.text.toString())
+            authViewModel.loginx(User(null, edEmail.text.toString(), edPass.text.toString()))
             authViewModel.loginResponse.observe(viewLifecycleOwner) {
-                toast(it.message)
-                if (!it.error) {
+                toast(it.status)
+                if (it.code == 200) {
                     toMain()
-                    authViewModel.saveTokenPref(it.loginResult.token)
-                    TOKEN_PREF = it.loginResult.token
+                    authViewModel.saveTokenPref(it.token)
+                    TOKEN_PREF = it.token
                 }
             }
         }

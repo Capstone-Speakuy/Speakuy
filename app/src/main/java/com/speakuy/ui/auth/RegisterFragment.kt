@@ -14,6 +14,7 @@ import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
 import androidx.lifecycle.ViewModelProvider
 import com.speakuy.R
+import com.speakuy.api.User
 import com.speakuy.databinding.FragmentRegisterBinding
 
 private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "login")
@@ -45,10 +46,10 @@ class RegisterFragment : Fragment() {
         edPass = binding.edPassReg
         binding.tvLogin.setOnClickListener { toLogin() }
         binding.btnRegister.setOnClickListener {
-            authViewModel.register(edName.text.toString(), edEmail.text.toString(), edPass.text.toString())
+            authViewModel.registerx(User(edName.text.toString(), edEmail.text.toString(), edPass.text.toString()))
             authViewModel.response.observe(viewLifecycleOwner) {
-                if (!it.error) toLogin()
-                toast(it.message)
+                if (it.code == 200) toLogin()
+                toast(it.status)
             }
         }
     }

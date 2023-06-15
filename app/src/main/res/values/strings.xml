@@ -36,4 +36,9 @@
     <string name="signup">Sign Up</string>
     <string name="i_agree">I agree to the terms of user and privacy policy</string>
     <string name="phone">Phone</string>
+    <string name="test_page">Test Page</string>
+    <string name="q1">What’s gender preference on your teacher?</string>
+    <string name="q2">What level are you on speaking skill?</string>
+    <string name="q3">What language you want to learn?</string>
+    <string name="q4">What skill you want to improve?</string>
 </resources>

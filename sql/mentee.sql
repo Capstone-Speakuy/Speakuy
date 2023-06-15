@@ -4,5 +4,6 @@ CREATE TABLE mentee (
   email VARCHAR(255) NOT NULL,
   password VARCHAR(255) NOT NULL,
   phone_number VARCHAR(20),
-  profile_picture VARCHAR(255)
+  profile_picture VARCHAR(255),
+  description text NULL
 );

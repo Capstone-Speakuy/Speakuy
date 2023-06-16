@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
+    android:label="@string/title_setting"
     app:startDestination="@+id/navigation_home">
 
     <fragment
@@ -30,6 +31,6 @@
     <fragment
         android:id="@+id/navigation_setting"
         android:name="com.speakuy.ui.setting.SettingFragment"
-        android:label="fragment_setting"
+        android:label="@string/title_setting"
         tools:layout="@layout/fragment_setting" />
 </navigation>

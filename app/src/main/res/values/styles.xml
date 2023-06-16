@@ -8,4 +8,13 @@
         <item name="android:background">@color/black_overlay</item>
         <item name="android:buttonBarStyle">?android:attr/buttonBarStyle</item>
     </style>
+
+    <style name="CustomTextInputStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeWidth">0dp</item>
+        <item name="boxBackgroundMode">filled</item>
+        <item name="boxBackgroundColor">@color/white</item>
+        <item name="endIconTint">@color/mtrl_filled_icon_tint</item>
+        <item name="startIconTint">@color/mtrl_filled_icon_tint</item>
+        <item name="boxCollapsedPaddingTop">10dp</item>
+    </style>
 </resources>

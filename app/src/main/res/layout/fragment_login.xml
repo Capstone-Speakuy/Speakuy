@@ -70,7 +70,7 @@
             android:id="@+id/ed_email_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/space" />
+            android:hint="@string/email" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
@@ -101,7 +101,7 @@
             android:id="@+id/ed_pass_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/space"
+            android:hint="@string/password"
             android:inputType="textPassword" />
     </com.google.android.material.textfield.TextInputLayout>
 

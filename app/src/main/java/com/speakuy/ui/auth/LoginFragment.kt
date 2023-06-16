@@ -61,7 +61,7 @@ class LoginFragment : Fragment() {
             }
         }
 
-        edEmail.addTextChangedListener(object : TextWatcher {
+        edPass.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
 
             }
@@ -71,7 +71,7 @@ class LoginFragment : Fragment() {
             }
 
             override fun afterTextChanged(s: Editable?) {
-//                binding.edEmail.error = "tes"
+                binding.edPass.error = "Password at least 1 uppercase and lowercase letter 1 number 8 characters"
             }
 
         })

@@ -3,6 +3,7 @@ package com.speakuy.ui.auth
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.speakuy.ui.matching.mentor.MentorViewModel
+import com.speakuy.ui.message.MessageViewModel
 import com.speakuy.ui.onboarding.OnboardViewModel
 
 class ViewModelFactory(private val pref: SettingPreferences) : ViewModelProvider.NewInstanceFactory() {
@@ -16,6 +17,9 @@ class ViewModelFactory(private val pref: SettingPreferences) : ViewModelProvider
         }
         if (modelClass.isAssignableFrom(OnboardViewModel::class.java)) {
             return OnboardViewModel(pref) as T
+        }
+        if (modelClass.isAssignableFrom(MessageViewModel::class.java)) {
+            return MessageViewModel(pref) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
     }

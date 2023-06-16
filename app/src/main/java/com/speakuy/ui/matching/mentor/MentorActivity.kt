@@ -37,7 +37,11 @@ class MentorActivity : AppCompatActivity() {
         mentorViewModel = ViewModelProvider(this, ViewModelFactory(pref))[MentorViewModel::class.java]
         mentorViewModel.getMentor()
         mentorViewModel.mentorResponse.observe(this) {
-            setListItem(it.listMentor!!)
+            if (it.listMentor!!.isEmpty()) {
+                binding.emptyView.visibility = View.VISIBLE
+            } else {
+                setListItem(it.listMentor)
+            }
             Log.d("testo", "onCreate: $it")
         }
         mentorViewModel.message.observe(this) {

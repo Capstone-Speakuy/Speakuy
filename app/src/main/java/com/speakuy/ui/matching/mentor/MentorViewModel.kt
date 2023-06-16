@@ -27,7 +27,7 @@ class MentorViewModel(private val pref: SettingPreferences) : ViewModel() {
                 if (response.isSuccessful) {
                     _mentorResponse.value = response.body()
                 }
-                Log.d("tes", "onResponse: ${response.body()}")
+                Log.d("testo", "onResponse: ${response.body()}")
                 _isLoading.value = false
             }
             override fun onFailure(call: Call<MentorResponse>, t: Throwable) {

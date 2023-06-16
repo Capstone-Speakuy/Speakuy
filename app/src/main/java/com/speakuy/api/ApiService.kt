@@ -34,6 +34,9 @@ interface ApiService {
     @GET("mentors")
     fun getMentors(): Call<MentorResponse>
 
+    @GET("mentors/my-mentors")
+    fun getMyMentor(): Call<MentorResponse>
+
 //    @Multipart
 //    @POST("stories")
 //    fun upload(

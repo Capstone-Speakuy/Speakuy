@@ -44,4 +44,6 @@
     <string name="desc">Professional Mentor</string>
     <string name="suggest">Suggestion...</string>
     <string name="submit">Submit</string>
+    <string name="tidak_ada_data">The conversation with your mentor will appear here</string>
+    <string name="error">Something\'s went wrong :( try again</string>
 </resources>

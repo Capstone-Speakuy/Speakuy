@@ -9,5 +9,7 @@ router.use(cors);
 router.get('/', authallmentee, mentorController.getAll);
 //select all recommended mentors
 router.post('/select', authallmentee, mentorController.selectMentor);
+//select all recommended mentors
+router.get('/my-mentors', authallmentee, mentorController.getAllMyMentor);
 
 module.exports = router;

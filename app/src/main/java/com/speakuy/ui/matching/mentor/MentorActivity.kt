@@ -45,6 +45,7 @@ class MentorActivity : AppCompatActivity() {
             Log.d("testo", "onCreate: $it")
         }
         mentorViewModel.message.observe(this) {
+            binding.tvEmpty.text = it
             Toast.makeText(this, "Error $it, try again", Toast.LENGTH_LONG).show()
         }
         mentorViewModel.isLoading.observe(this) {

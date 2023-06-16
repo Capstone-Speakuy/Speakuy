@@ -66,7 +66,7 @@ Mentee.addMentee  = (full_name, email, password, callback) => {
 
 Mentee.megetById = (id, callback) => {
   connection.query(
-    'SELECT full_name, email, phone_number, profile_picture FROM mentee WHERE id = ?',
+    'SELECT id, full_name, email, phone_number, profile_picture, description FROM mentee WHERE id = ?',
     [id],
     callback
   );

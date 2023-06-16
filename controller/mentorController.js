@@ -34,4 +34,14 @@ mentorController.getAll = (req, res) => {
     });
 }
 
+mentorController.selectMentor = (req, res) => {
+  const token = req.headers.authorization.split(' ')[1];
+  const tokenData = jwt.decode(token);
+  const id = tokenData.data.id;
+  const { mentor_id } = req.body;
+  Mentor.assignToMentee(id, mentor_id, () => {
+    res.status(200).json({ code: 200, status: "OK" });
+  });
+}
+
 module.exports = mentorController;

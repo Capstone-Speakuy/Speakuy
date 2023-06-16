@@ -20,6 +20,8 @@ router.get('/logoutAuth',authallmentee, menteeController.logoutMenteeAuth);
 router.get('/me',authallmentee, menteeController.me);
 //endpoint update me (profile)
 router.put('/updateme', authallmentee,upload, menteeController.updateme);
+//endpoint update description
+router.put('/update-description', authallmentee, menteeController.updateDescription);
 
 // router.post('/login', menteeController.loginMentee);
 // router.get('/all',authallmentee,menteeController.getAllMentee);

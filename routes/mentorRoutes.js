@@ -7,5 +7,7 @@ const mentorController = require('../controller/mentorController');
 router.use(cors);
 //get all recommended mentors
 router.get('/', authallmentee, mentorController.getAll);
+//select all recommended mentors
+router.post('/select', authallmentee, mentorController.selectMentor);
 
 module.exports = router;

@@ -64,6 +64,18 @@ Mentee.addMentee  = (full_name, email, password, callback) => {
   });
 };
 
+Mentee.updateDescription = (id, description, callback) => {
+  const query = `UPDATE mentee SET description = ? WHERE id = ?`;
+  connection.query(
+    query,
+    [description, id],
+    (err, results) => {
+      if (err) throw err;
+      callback();
+    }
+  )
+}
+
 Mentee.megetById = (id, callback) => {
   connection.query(
     'SELECT id, full_name, email, phone_number, profile_picture, description FROM mentee WHERE id = ?',

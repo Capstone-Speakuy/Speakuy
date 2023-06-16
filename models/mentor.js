@@ -1,4 +1,5 @@
 const fetch = require('node-fetch');
+const connection = require('../config/db');
 
 const Mentor = {};
 
@@ -7,7 +8,7 @@ Mentor.getRecommendations = async (userId, userText, callback) => {
     throw new Error("Mentee belum mengisi survey");
   }
   try {
-    const response = await fetch("http://127.0.0.1:5000/get-mentors", {
+    const response = await fetch("https://bismillah-vvtmzrrdvq-ue.a.run.app/get-mentors", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -24,5 +25,17 @@ Mentor.getRecommendations = async (userId, userText, callback) => {
     callback(error, null);
   }
 };
+
+Mentor.assignToMentee = (id, mentor_id, callback) => {
+  const query = `INSERT INTO mentor_mentee (mentee_id, mentor_id) VALUES (?, ?)`;
+  connection.query(
+    query,
+    [id, mentor_id],
+    (err, results) => {
+      if (err) throw err;
+      callback();
+    }
+  )
+}
 
 module.exports = Mentor;

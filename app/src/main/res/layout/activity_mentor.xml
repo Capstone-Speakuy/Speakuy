@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.matching.MentorActivity">
+    tools:context=".ui.matching.mentor.MentorActivity">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_mentor_result"
@@ -13,24 +13,16 @@
         android:layout_height="match_parent"
         tools:listitem="@layout/mentor_list" />
 
-    <!--    <ImageView-->
-<!--        android:id="@+id/btn_back"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginStart="16dp"-->
-<!--        android:src="@drawable/ic_baseline_arrow_back_24"-->
-<!--        app:layout_constraintBottom_toTopOf="@+id/rv_mentor_result"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent" />-->
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible" />
 
-<!--    <TextView-->
-<!--        android:id="@+id/textView23"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="Mentor Recommendation"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="@+id/btn_back"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/btn_back"-->
-<!--        tools:layout_editor_absoluteY="15dp" />-->
 </androidx.constraintlayout.widget.ConstraintLayout>

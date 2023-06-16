@@ -1,14 +1,23 @@
 package com.speakuy.api
 
+import kotlinx.parcelize.Parcelize
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
 
 data class MentorResponse(
 
-	@field:SerializedName("MentorResponse")
-	val mentorResponse: List<MentorResponseItem?>? = null
+	@field:SerializedName("code")
+	val code: Int? = null,
+
+	@field:SerializedName("status")
+	val status: String? = null,
+
+	@field:SerializedName("data")
+	val listMentor: List<Mentor>? = null,
 )
 
-data class MentorResponseItem(
+@Parcelize
+data class Mentor(
 
 	@field:SerializedName("earned")
 	val earned: Int? = null,
@@ -20,7 +29,7 @@ data class MentorResponseItem(
 	val name: String? = null,
 
 	@field:SerializedName("avg_rate")
-	val avgRate: Any? = null,
+	val avgRate: Double? = null,
 
 	@field:SerializedName("created_at")
 	val createdAt: String? = null,
@@ -29,7 +38,7 @@ data class MentorResponseItem(
 	val description: String? = null,
 
 	@field:SerializedName("similiarity")
-	val similiarity: Any? = null,
+	val similiarity: Double? = null,
 
 	@field:SerializedName("id")
 	val id: Int? = null,
@@ -38,11 +47,11 @@ data class MentorResponseItem(
 	val salaryPerHour: Int? = null,
 
 	@field:SerializedName("total_hours")
-	val totalHours: Any? = null,
+	val totalHours: Double? = null,
 
 	@field:SerializedName("success_rate")
-	val successRate: Any? = null,
+	val successRate: Double? = null,
 
 	@field:SerializedName("total_job")
 	val totalJob: Int? = null
-)
+) : Parcelable

@@ -30,21 +30,14 @@ interface ApiService {
         @Field("password") password : String
     ): Call<LoginResponse>
 
+
+    @GET("mentors")
+    fun getMentors(): Call<MentorResponse>
+
 //    @Multipart
 //    @POST("stories")
 //    fun upload(
 //        @Part file: MultipartBody.Part,
 //        @Part("description") description: RequestBody
 //    ): Call<ApiResponse>
-//
-//    @GET("stories")
-//    fun storiesLocation(
-//        @Query("location") location: Int
-//    ): Call<StoryResponse>
-
-//    @GET("stories")
-//    suspend fun getStoryPaged(
-//        @Query("page") page: Int,
-//        @Query("size") size: Int
-//    ): Mentor
 }

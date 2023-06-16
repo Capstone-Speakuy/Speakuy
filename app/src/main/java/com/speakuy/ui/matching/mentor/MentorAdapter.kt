@@ -1,18 +1,16 @@
-package com.speakuy.ui.matching
+package com.speakuy.ui.matching.mentor
 
-import android.app.Activity
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.core.app.ActivityOptionsCompat
-import androidx.core.util.Pair
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.speakuy.R
-import com.speakuy.model.Mentor
+import com.speakuy.api.Mentor
+import com.speakuy.ui.matching.DetailActivity
 
 class MentorAdapter(private val listMentor: List<Mentor>) : RecyclerView.Adapter<MentorAdapter.ViewHolder>() {
 
@@ -22,10 +20,10 @@ class MentorAdapter(private val listMentor: List<Mentor>) : RecyclerView.Adapter
         private val descMentor: TextView = view.findViewById(R.id.tv_desc_mentor)
 
         fun bind(mentor: Mentor) {
-            Glide.with(itemView.context)
-                .load(mentor.photo)
-                .circleCrop()
-                .into(imgMentor)
+//            Glide.with(itemView.context)
+//                .load(mentor.photo)
+//                .circleCrop()
+//                .into(imgMentor)
             nameMentor.text = mentor.name
             descMentor.text = mentor.description
 

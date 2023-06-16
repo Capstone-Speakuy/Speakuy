@@ -6,8 +6,8 @@ import android.os.Bundle
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.speakuy.R
+import com.speakuy.api.Mentor
 import com.speakuy.databinding.ActivityDetailBinding
-import com.speakuy.model.Mentor
 import com.speakuy.ui.chat.ChatActivity
 
 @Suppress("DEPRECATION")
@@ -27,17 +27,18 @@ class DetailActivity : AppCompatActivity() {
 
         val mentorData = intent.getParcelableExtra<Mentor>("mentorData") as Mentor
         with (binding) {
-            Glide.with(imgAvatarDetail.context)
-                .load(mentorData.photo)
-                .apply(RequestOptions.placeholderOf(R.mipmap.ic_launcher).override(200,200))
-                .into(imgAvatarDetail)
+//            Glide.with(imgAvatarDetail.context)
+//                .load(mentorData.photo)
+//                .apply(RequestOptions.placeholderOf(R.mipmap.ic_launcher).override(200,200))
+//                .into(imgAvatarDetail)
             tvNameDetail.text = mentorData.name
             tvDescDetail.text = mentorData.description
-
         }
 
         binding.btnChatDetail.setOnClickListener {
-            startActivity(Intent(this, ChatActivity::class.java))
+            val intent = Intent(this, ChatActivity::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
+            startActivity(intent)
         }
     }
 }

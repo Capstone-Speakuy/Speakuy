@@ -1,8 +1,8 @@
 package com.speakuy.api
 
 import com.speakuy.BuildConfig
-import com.speakuy.ui.auth.AuthActivity
 import com.speakuy.ui.auth.LoginFragment
+import com.speakuy.ui.onboarding.OnboardActivity
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -19,8 +19,13 @@ class ApiConfig {
             }
             val authInterceptor = Interceptor { chain ->
                 val req = chain.request()
+                var token = if (OnboardActivity.TOKEN_PREFERENCES == null) {
+                    LoginFragment.TOKEN_PREF
+                } else {
+                    OnboardActivity.TOKEN_PREFERENCES
+                }
                 val reqHeaders = req.newBuilder()
-                    .addHeader("Authorization", "Bearer ${LoginFragment.TOKEN_PREF}")
+                    .addHeader("Authorization", "Bearer $token")
                     .build()
                 chain.proceed(reqHeaders)
             }
@@ -29,7 +34,7 @@ class ApiConfig {
                 .addInterceptor(loggingInterceptor)
                 .build()
             val retrofit = Retrofit.Builder()
-                .baseUrl("https://api0306-62grukbfuq-et.a.run.app/")
+                .baseUrl("https://selesai-62grukbfuq-ue.a.run.app/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(client)
                 .build()

@@ -52,16 +52,15 @@
                 android:textColor="@color/white"
                 android:textStyle="bold"
                 app:layout_constraintStart_toEndOf="@+id/img_avatar_mentor"
-                app:layout_constraintTop_toTopOf="@+id/img_avatar_mentor" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/img_avatar_mentor"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:src="@drawable/ic_launcher_background"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="@id/tv_name_mentor" />
 
             <TextView
                 android:id="@+id/tv_desc_mentor"

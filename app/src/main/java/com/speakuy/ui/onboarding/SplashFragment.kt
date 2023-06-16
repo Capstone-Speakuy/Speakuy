@@ -48,7 +48,7 @@ class SplashFragment : Fragment() {
 
             authViewModel.getTokenPref().observe(viewLifecycleOwner) {
                 if (it != null) moveTo(MainActivity::class.java) else moveTo(AuthActivity::class.java)
-                Log.d("tes", "onCreateView: $it")
+                Log.d("testo", "splash: $it")
             }
 
             requireActivity().finish()

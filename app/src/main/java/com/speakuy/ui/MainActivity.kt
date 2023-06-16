@@ -19,8 +19,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        val toolbar = findViewById<Toolbar>(R.id.my_toolbar)
-        setSupportActionBar(toolbar)
+        supportActionBar?.title = "Speakuy"
+        supportActionBar?.setIcon(R.drawable.img_logo)
 
         val navView: BottomNavigationView = binding.navView
 

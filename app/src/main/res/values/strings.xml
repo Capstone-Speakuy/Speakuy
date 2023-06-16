@@ -42,4 +42,6 @@
     <string name="q3">What language you want to learn?</string>
     <string name="q4">What skill you want to improve?</string>
     <string name="desc">Professional Mentor</string>
+    <string name="suggest">Suggestion...</string>
+    <string name="submit">Submit</string>
 </resources>

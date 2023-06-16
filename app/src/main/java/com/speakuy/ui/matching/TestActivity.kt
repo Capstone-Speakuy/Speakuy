@@ -3,6 +3,8 @@ package com.speakuy.ui.matching
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
+import com.speakuy.R
 import com.speakuy.databinding.ActivityTestBinding
 
 class TestActivity : AppCompatActivity() {
@@ -14,7 +16,10 @@ class TestActivity : AppCompatActivity() {
 
         binding = ActivityTestBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        supportActionBar?.hide()
+        supportActionBar?.title = "Assessment"
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_baseline_arrow_back_24)
+        supportActionBar?.setHomeButtonEnabled(true)
 
         binding.btnQuest.setOnClickListener { backWithData() }
     }

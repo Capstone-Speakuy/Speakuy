@@ -2,7 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/btn_rate"
+        android:id="@+id/navigation_rate"
         android:title="Rate"
         android:icon="@drawable/ic_baseline_star_outline_24"
         app:showAsAction="always"/>

@@ -11,10 +11,7 @@
         android:id="@+id/rv_mentor_result"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="?attr/actionBarSize"
         tools:listitem="@layout/mentor_list" />
-
-    <include layout="@layout/app_bar"/>
 
     <!--    <ImageView-->
 <!--        android:id="@+id/btn_back"-->

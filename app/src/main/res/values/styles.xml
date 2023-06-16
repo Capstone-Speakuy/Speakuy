@@ -17,4 +17,8 @@
         <item name="startIconTint">@color/mtrl_filled_icon_tint</item>
         <item name="boxCollapsedPaddingTop">10dp</item>
     </style>
+
+    <style name="CustomTextArea" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeWidth">0dp</item>
+    </style>
 </resources>

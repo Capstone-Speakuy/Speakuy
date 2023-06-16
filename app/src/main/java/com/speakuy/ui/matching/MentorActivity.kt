@@ -19,13 +19,9 @@ class MentorActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMentorBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        val toolbar = findViewById<Toolbar>(R.id.my_toolbar)
-        setSupportActionBar(toolbar)
-        with (supportActionBar!!) {
-            title = "My Custom Title"
-            setDisplayHomeAsUpEnabled(true)
-            setHomeAsUpIndicator(R.drawable.ic_baseline_arrow_back_24)
-        }
+        supportActionBar?.title = "Recommended Mentors"
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_baseline_arrow_back_24)
 
         binding.rvMentorResult.layoutManager = LinearLayoutManager(this)
         setListItem(mentorDummy)

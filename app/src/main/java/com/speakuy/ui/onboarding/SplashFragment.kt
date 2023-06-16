@@ -6,6 +6,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -46,8 +47,8 @@ class SplashFragment : Fragment() {
 //            }
 
             authViewModel.getTokenPref().observe(viewLifecycleOwner) {
-                toast("token: $it")
                 if (it != null) moveTo(MainActivity::class.java) else moveTo(AuthActivity::class.java)
+                Log.d("tes", "onCreateView: $it")
             }
 
             requireActivity().finish()
@@ -61,10 +62,6 @@ class SplashFragment : Fragment() {
         val intent = Intent(requireActivity(), page)
         startActivity(intent)
         requireActivity().finish()
-    }
-
-    private fun toast(msg: String) {
-        Toast.makeText(requireContext(), msg, Toast.LENGTH_SHORT).show()
     }
 
     private fun onBoardingFinished(): Boolean {

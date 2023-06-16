@@ -4,10 +4,10 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.activity.addCallback
 import androidx.appcompat.app.AlertDialog
 import com.speakuy.databinding.ActivityMatchingBinding
 import com.speakuy.ui.MainActivity
-import kotlinx.coroutines.MainScope
 
 class MatchingActivity : AppCompatActivity() {
 
@@ -24,7 +24,9 @@ class MatchingActivity : AppCompatActivity() {
         val intent = intent
         data = intent.getStringExtra("q1")
 
-        binding.imgTest.setOnClickListener { moveTo(TestActivity::class.java) }
+        binding.imgTest.setOnClickListener {
+            moveTo(TestActivity::class.java)
+        }
         binding.imgMentor.setOnClickListener {
             if (data != null) {
                 moveTo(MentorActivity::class.java)
@@ -32,14 +34,9 @@ class MatchingActivity : AppCompatActivity() {
                 Toast.makeText(this, "Take a test first", Toast.LENGTH_SHORT).show()
             }
         }
-    }
 
-    @Deprecated("Deprecated in Java")
-    override fun onBackPressed() {
-        super.onBackPressed()
-
-        if (data != null) {
-            confirm()
+        onBackPressedDispatcher.addCallback(this) {
+            if (data != null) confirm() else finish()
         }
     }
 

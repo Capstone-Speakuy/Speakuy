@@ -69,7 +69,7 @@ class LoginFragment : Fragment() {
             }
 
             override fun afterTextChanged(s: Editable?) {
-                binding.edEmail.error = "tes"
+//                binding.edEmail.error = "tes"
             }
 
         })

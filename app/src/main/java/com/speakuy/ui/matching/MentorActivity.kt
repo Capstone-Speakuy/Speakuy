@@ -3,9 +3,11 @@ package com.speakuy.ui.matching
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView.ItemDecoration
+import com.speakuy.R
 import com.speakuy.databinding.ActivityMentorBinding
 import com.speakuy.model.Mentor
 
@@ -17,16 +19,16 @@ class MentorActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMentorBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        supportActionBar?.hide()
+        val toolbar = findViewById<Toolbar>(R.id.my_toolbar)
+        setSupportActionBar(toolbar)
+        with (supportActionBar!!) {
+            title = "My Custom Title"
+            setDisplayHomeAsUpEnabled(true)
+            setHomeAsUpIndicator(R.drawable.ic_baseline_arrow_back_24)
+        }
 
         binding.rvMentorResult.layoutManager = LinearLayoutManager(this)
         setListItem(mentorDummy)
-
-        binding.btnBack.setOnClickListener {
-            startActivity(
-                Intent(this, MatchingActivity::class.java)
-            )
-        }
     }
 
     private fun setListItem(mentors: List<Mentor>) {

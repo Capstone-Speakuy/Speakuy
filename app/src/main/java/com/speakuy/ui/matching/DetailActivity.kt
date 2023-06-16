@@ -1,5 +1,6 @@
 package com.speakuy.ui.matching
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.bumptech.glide.Glide
@@ -7,6 +8,7 @@ import com.bumptech.glide.request.RequestOptions
 import com.speakuy.R
 import com.speakuy.databinding.ActivityDetailBinding
 import com.speakuy.model.Mentor
+import com.speakuy.ui.ChatActivity
 
 @Suppress("DEPRECATION")
 class DetailActivity : AppCompatActivity() {
@@ -17,6 +19,8 @@ class DetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        supportActionBar?.hide()
+
 
         val mentorData = intent.getParcelableExtra<Mentor>("mentorData") as Mentor
         with (binding) {
@@ -26,6 +30,11 @@ class DetailActivity : AppCompatActivity() {
                 .into(imgAvatarDetail)
             tvNameDetail.text = mentorData.name
             tvDescDetail.text = mentorData.description
+
+        }
+
+        binding.btnChatDetail.setOnClickListener {
+            startActivity(Intent(this, ChatActivity::class.java))
         }
     }
 }

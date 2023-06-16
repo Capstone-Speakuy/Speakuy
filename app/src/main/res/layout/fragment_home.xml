@@ -55,21 +55,30 @@
         app:layout_constraintStart_toStartOf="@+id/text_home"
         app:layout_constraintTop_toBottomOf="@+id/rv_mentor" />
 
-    <androidx.recyclerview.widget.RecyclerView
+    <ImageView
         android:id="@+id/rv_mentor"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:contentDescription="@string/top_rated"
-        android:orientation="horizontal"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        android:layout_height="200dp"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_home"
-        tools:itemCount="5"
-        tools:listitem="@layout/card_list" />
+    android:src="@drawable/toprated"/>
+
+<!--    <androidx.recyclerview.widget.RecyclerView-->
+<!--        android:id="@+id/rv_mentor"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="8dp"-->
+<!--        android:layout_marginTop="8dp"-->
+<!--        android:contentDescription="@string/top_rated"-->
+<!--        android:orientation="horizontal"-->
+<!--        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_chainStyle="spread_inside"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/text_home"-->
+<!--        tools:itemCount="5"-->
+<!--        tools:listitem="@layout/card_list" />-->
 
     <ImageView
         android:id="@+id/imageView12"
